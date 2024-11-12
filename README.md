@@ -1,6 +1,6 @@
-# LuminaEngine
+# Lumina Engine
 
-**The next advanced GameTech™ by Wiz**
+**The game engine built to be advanced GameTech™ by Wiz**
 
 ## Overview
 LuminaEngine is a cutting-edge game engine designed to empower developers with unparalleled tools and performance. Built with the latest advancements in GameTech™, LuminaEngine offers everything from real-time ray tracing to highly optimized physics for creating next-level immersive experiences.
@@ -70,8 +70,8 @@ LuminaEngine is available under a flexible licensing model designed to support b
 
 ## Credits
 
-**Developer:** Wiz  
-**GameTech™ Consultant:** [Your Team, Contributors]  
+**Developer:** by Wiz  
+**GameTech™ Consultant:** by Wiz
 
 ## Contact
 
