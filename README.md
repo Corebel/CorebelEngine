@@ -1,9 +1,9 @@
-# LuminaEngine
+# Corebel Engine
 
 **The next advanced GameTech™ by Wiz**
 
 ## Overview
-LuminaEngine is a cutting-edge game engine designed to empower developers with unparalleled tools and performance. Built with the latest advancements in GameTech™, LuminaEngine offers everything from real-time ray tracing to highly optimized physics for creating next-level immersive experiences.
+Corebel Engine is a cutting-edge game engine designed to empower developers with unparalleled tools and performance. Built with the latest advancements in GameTech™, Corebel Engine offers everything from real-time ray tracing to highly optimized physics for creating next-level immersive experiences.
 
 ## Features
 
@@ -46,15 +46,15 @@ LuminaEngine is a cutting-edge game engine designed to empower developers with u
 ## Getting Started
 
 1. **Installation**
-   - Download LuminaEngine from the [official website](https://wizcan.github.io/pages/download/lumina-engine/get).
+   - Download LuminaEngine from the [official website](https://wizcan.github.io/CorebelEngine/release).
    - Follow the setup instructions to configure it with your development environment.
 
 2. **Creating Your First Project**
-   - Open LuminaEngine and start a new project.
+   - Open Corebel Engine and start a new project.
    - Choose your desired settings for graphics, physics, and input management.
 
 3. **Explore Documentation**
-   - Check out our detailed [documentation](#) and tutorials to get familiar with LuminaEngine's capabilities.
+   - Check out our detailed [CorebelEngine_1.0/Documentation](#) and tutorials to get familiar with LuminaEngine's capabilities.
 
 ## Community and Support
 
@@ -66,13 +66,12 @@ Join our growing community of game developers and enthusiasts!
 
 ## Licensing
 
-LuminaEngine is available under a flexible licensing model designed to support both independent developers and large studios. Contact our team to learn more about licensing options that suit your needs.
+Corebel Engine is available under a flexible licensing model designed to support both independent developers and large studios. Contact our team to learn more about licensing options that suit your needs.
 
 ## Credits
 
-**Developer:** Wiz  
-**GameTech™ Consultant:** [Your Team, Contributors]  
-
+**GameTech(TM) Developer:** Wiz  
+ 
 ## Contact
 
 Feel free to reach out with any questions or feedback:
