@@ -54,7 +54,7 @@ Corebel Engine is a cutting-edge game engine designed to empower developers with
    - Choose your desired settings for graphics, physics, and input management.
 
 3. **Explore Documentation**
-   - Check out our detailed [CorebelEngine_1.0/Documentation](#) and tutorials to get familiar with LuminaEngine's capabilities.
+   - Check out our detailed [CorebelEngine/documentation](#) and tutorials to get familiar with LuminaEngine's capabilities.
 
 ## Community and Support
 
