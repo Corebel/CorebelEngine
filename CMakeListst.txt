@@ -1,0 +1,53 @@
+cmake_minimum_required(VERSION 3.15)
+project(CorebelEngine)
+
+# C++ Standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Paths for dependencies
+set(LIB_DIR ${CMAKE_SOURCE_DIR}/libs)
+
+# Add subdirectories for libraries
+add_subdirectory(${LIB_DIR}/boost)
+add_subdirectory(${LIB_DIR}/rapidjson)
+add_subdirectory(${LIB_DIR}/zlib)
+
+# Include directories
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# Source files
+file(GLOB_RECURSE ENGINE_SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+
+# Executable
+add_executable(CorebelEngine ${ENGINE_SOURCES})
+
+# Link libraries
+target_link_libraries(CorebelEngine 
+    Boost::filesystem 
+    zlib 
+    rapidjson
+)
+
+# Add all library directories in libs
+file(GLOB_RECURSE LIBRARY_DIRS ${CMAKE_SOURCE_DIR}/libs/*)
+
+foreach(LIB_DIR ${LIBRARY_DIRS})
+    if (EXISTS ${LIB_DIR}/CMakeLists.txt)
+        add_subdirectory(${LIB_DIR})
+    endif()
+endforeach()
+
+# Link necessary libraries
+target_link_libraries(CorebelEngine
+    bgfx
+    BulletDynamics
+    BulletCollision
+    LinearMath
+    assimp
+    imgui
+    RakNetLibStatic
+    Boost::filesystem
+    zlib
+    rapidjson
+)
