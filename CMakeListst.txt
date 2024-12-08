@@ -1,44 +1,40 @@
+# Corebel Engine CMake configuration
 cmake_minimum_required(VERSION 3.15)
 project(CorebelEngine)
 
-# C++ Standard
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Paths for dependencies
-set(LIB_DIR ${CMAKE_SOURCE_DIR}/libs)
+# Define paths
+set(LIBS_DIR ${CMAKE_SOURCE_DIR}/libs)
+set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
-# Add subdirectories for libraries
-add_subdirectory(${LIB_DIR}/boost)
-add_subdirectory(${LIB_DIR}/rapidjson)
-add_subdirectory(${LIB_DIR}/zlib)
+# Include directories for non-CMake-based libraries
+include_directories(
+    ${INCLUDE_DIR}
+    ${LIBS_DIR}/boost
+    ${LIBS_DIR}/zlib
+    ${LIBS_DIR}/rapidjson/include
+    ${LIBS_DIR}/fmod
+    ${LIBS_DIR}/eigen
+)
 
-# Include directories
-include_directories(${CMAKE_SOURCE_DIR}/include)
+# Add source files
+file(GLOB_RECURSE ENGINE_SOURCES ${SRC_DIR}/*.cpp)
 
-# Source files
-file(GLOB_RECURSE ENGINE_SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+# Add libraries as subdirectories
+add_subdirectory(${LIBS_DIR}/bgfx)
+add_subdirectory(${LIBS_DIR}/bullet)
+add_subdirectory(${LIBS_DIR}/assimp)
+add_subdirectory(${LIBS_DIR}/imgui)
+add_subdirectory(${LIBS_DIR}/raknet)
 
-# Executable
+# Add executable
 add_executable(CorebelEngine ${ENGINE_SOURCES})
 
 # Link libraries
-target_link_libraries(CorebelEngine 
-    Boost::filesystem 
-    zlib 
-    rapidjson
-)
-
-# Add all library directories in libs
-file(GLOB_RECURSE LIBRARY_DIRS ${CMAKE_SOURCE_DIR}/libs/*)
-
-foreach(LIB_DIR ${LIBRARY_DIRS})
-    if (EXISTS ${LIB_DIR}/CMakeLists.txt)
-        add_subdirectory(${LIB_DIR})
-    endif()
-endforeach()
-
-# Link necessary libraries
 target_link_libraries(CorebelEngine
     bgfx
     BulletDynamics
@@ -49,5 +45,44 @@ target_link_libraries(CorebelEngine
     RakNetLibStatic
     Boost::filesystem
     zlib
-    rapidjson
 )
+
+# Additional options for bgfx
+target_compile_definitions(CorebelEngine PRIVATE BGFX_CONFIG_MULTITHREADED=0)
+
+# OS-specific settings
+if (WIN32)
+    target_compile_definitions(CorebelEngine PRIVATE WIN32)
+    target_link_libraries(CorebelEngine winmm.lib)
+elseif (APPLE)
+    target_compile_definitions(CorebelEngine PRIVATE MACOS)
+    find_library(COREFOUNDATION_LIBRARY CoreFoundation)
+    target_link_libraries(CorebelEngine ${COREFOUNDATION_LIBRARY})
+elseif (UNIX)
+    target_compile_definitions(CorebelEngine PRIVATE LINUX)
+    target_link_libraries(CorebelEngine pthread dl)
+endif()
+
+# Debug/Release configurations
+set_target_properties(CorebelEngine PROPERTIES
+    DEBUG_POSTFIX "_d"
+    RELEASE_POSTFIX ""
+)
+
+# Output directories
+set_target_properties(CorebelEngine PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+)
+
+# Optional: Add custom commands for auto-formatting or utility tasks
+# Example: Add clang-format target
+find_program(CLANG_FORMAT clang-format)
+if (CLANG_FORMAT)
+    add_custom_target(format
+        COMMAND clang-format -i ${ENGINE_SOURCES}
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Running clang-format on source files..."
+    )
+endif()
