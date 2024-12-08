@@ -1,80 +1,43 @@
 # Corebel Engine
 
-**The next advanced GameTech™ by Wiz**
+**Corebel Engine** is a modular, open-source 3D game engine designed to empower developers with an efficient and highly customizable framework for building games and interactive experiences. Built with cutting-edge libraries and tools, Corebel Engine prioritizes flexibility, performance, and ease of integration.
 
-## Overview
-Corebel Engine is a cutting-edge game engine designed to empower developers with unparalleled tools and performance. Built with the latest advancements in GameTech™, Corebel Engine offers everything from real-time ray tracing to highly optimized physics for creating next-level immersive experiences.
+---
 
 ## Features
+- **Project Management**: Easy creation, loading, and saving of projects with a robust file management system.
+- **Rendering**: Powered by `bgfx`, `Ogre3D`, and `Dear ImGui` for modern graphics and UI rendering.
+- **Physics**: Realistic simulation using `Bullet` physics and `Eigen` for mathematical computations.
+- **Networking**: Seamless multiplayer capabilities with `RakNet`.
+- **Audio**: Immersive sound design enabled by `FMOD`.
+- **Scripting**: Flexible game logic scripting using `Lua`.
+- **Asset Management**: Load and manage 3D assets with `Assimp`.
+- **Entity System**: Manage entities and components with `entt`.
+- **File Handling**: Reliable file operations with `Boost.filesystem`, `zlib` for compression, and `RapidJSON` for configurations.
 
-### 1. Real-Time Ray Tracing
-   - Unprecedented lighting quality and reflections
-   - Realistic shadows and ambient occlusion
-
-### 2. Advanced Physics System
-   - Supports soft and rigid body simulations
-   - Optimized for multi-threading and efficient collision detection
-
-### 3. High-Fidelity Graphics Pipeline
-   - Capable of rendering ultra-realistic visuals in real-time
-   - Supports HDR, PBR (Physically-Based Rendering), and customizable shaders
-
-### 4. AI-Powered NPCs
-   - Integrated artificial intelligence for dynamic and responsive NPC behavior
-   - Adaptive learning algorithms that respond to player actions in real-time
-
-### 5. Cross-Platform Compatibility
-   - Deploy games seamlessly across PC, console, and mobile devices
-   - Optimized for major operating systems, including Windows, macOS, iOS, and Android
-
-### 6. User-Friendly Interface
-   - An intuitive editor designed for creators of all levels
-   - Advanced scripting tools with support for Python, Lua, and C#
-
-### 7. Modular Architecture
-   - Customizable modules for developers to adapt the engine to specific game genres
-   - Supports third-party plugins and assets for endless possibilities
-
-## Required Libraries and Programming Languages
-
-- **Core Languages**: C++ (for engine development), Python, Lua, and C# (for scripting support)
-- **Graphics Libraries**: Vulkan, DirectX, OpenGL, and Metal (for cross-platform rendering support)
-- **Physics Libraries**: PhysX or Bullet Physics (for real-time physics simulation)
-- **AI Libraries**: TensorFlow Lite (for lightweight neural network support in AI-driven NPCs)
-- **Audio Libraries**: FMOD or OpenAL (for immersive 3D audio effects)
+---
 
 ## Getting Started
 
-1. **Installation**
-   - Download LuminaEngine from the [official website](https://wizcan.github.io/CorebelEngine/release).
-   - Follow the setup instructions to configure it with your development environment.
+### Prerequisites
+- **Development Environment**: Codespaces or local environment with C++17 support.
+- **Dependencies**: Ensure the following libraries are available in the `libs` directory:
+  - [bgfx](https://github.com/bkaradzic/bgfx)
+  - [Bullet Physics](https://github.com/bulletphysics/bullet3)
+  - [Eigen](https://eigen.tuxfamily.org/)
+  - [FMOD](https://www.fmod.com/)
+  - [SDL2](https://www.libsdl.org/)
+  - [Lua](https://www.lua.org/)
+  - [Assimp](https://github.com/assimp/assimp)
+  - [Dear ImGui](https://github.com/ocornut/imgui)
+  - [RakNet](https://github.com/facebookarchive/RakNet)
+  - [Ogre3D](https://www.ogre3d.org/)
+  - [Boost.Filesystem](https://www.boost.org/)
+  - [zlib](https://zlib.net/)
+  - [RapidJSON](https://rapidjson.org/)
 
-2. **Creating Your First Project**
-   - Open Corebel Engine and start a new project.
-   - Choose your desired settings for graphics, physics, and input management.
-
-3. **Explore Documentation**
-   - Check out our detailed [CorebelEngine/documentation](#) and tutorials to get familiar with LuminaEngine's capabilities.
-
-## Community and Support
-
-Join our growing community of game developers and enthusiasts!
-
-- **Forums**: Discuss and share knowledge with other developers.
-- **Discord**: Get real-time support and connect with our community.
-- **Official Tutorials**: Access in-depth guides on all aspects of game development with LuminaEngine.
-
-## Licensing
-
-Corebel Engine is available under a flexible licensing model designed to support both independent developers and large studios. Contact our team to learn more about licensing options that suit your needs.
-
-## Credits
-
-**GameTech(TM) Developer:** Wiz  
- 
-## Contact
-
-Feel free to reach out with any questions or feedback:
-
-- **Email**: wizcan7.0@gmail.com
-- **X (formerly Twitter)**: [@wizcan_](https://x.com/wizcan_)
+### Building the Engine
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/wizcann/CorebelEngine.git
+   cd CorebelEngine
